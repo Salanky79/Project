@@ -1,0 +1,85 @@
+[
+    {
+        "name": "Salanky Uchiha",
+        "description": "The journey to 500M",
+        "rating": 5.0,
+        "videos": [
+            {
+                "title": "Past",
+                "link": "https://youtu.be/6LTeultiR4c?si=LZmCxWsT9Zs78gR8",
+                "seen": true
+            },
+            {
+                "title": "Present",
+                "link": "https://youtu.be/Q7PkmLTlVdU?si=nFKdwhdaOhiBSfSy",
+                "seen": true
+            },
+            {
+                "title": "Future",
+                "link": "https://youtu.be/yNE7sigHIb8?si=OQ3-lMtsh-0dT95j",
+                "seen": true
+            }
+        ]
+    },
+    {
+        "name": "Miku",
+        "description": "Where is this fine shyt",
+        "rating": 4.8,
+        "videos": [
+            {
+                "title": "What's make u beatiful",
+                "link": "https://youtu.be/QJO3ROT-A4E?si=hrdtzCq10kLgD7H5",
+                "seen": false
+            },
+            {
+                "title": "Night changes",
+                "link": "https://youtu.be/syFZfO_wfMQ?si=Hcp1wxRl6b_PgoTl",
+                "seen": true
+            },
+            {
+                "title": "we fell in love in october",
+                "link": "https://youtu.be/iggmiF7DNoM?si=ubzaCzRsPHtrCCPL",
+                "seen": true
+            }
+        ]
+    },
+    {
+        "name": "Vi\u1ec7t remix",
+        "description": "VNmese songs",
+        "rating": 4.0,
+        "videos": [
+            {
+                "title": "L\u1ed7i t\u1ea1i m\u01b0a",
+                "link": "https://youtu.be/6LTeultiR4c?si=A_-v5ApI3BtYTPcr",
+                "seen": false
+            },
+            {
+                "title": "4 m\u00f9a",
+                "link": "https://youtu.be/clpyA5394Bs?si=lWg9cLlWfNTNeuHy",
+                "seen": true
+            }
+        ]
+    },
+    {
+        "name": "Viet chill",
+        "description": "chill music for you",
+        "rating": 4.0,
+        "videos": [
+            {
+                "title": "Ph\u00e9p m\u00e0u",
+                "link": "https://youtu.be/jPjQJYKhhk4?si=MtbabkyKc6x9Haxq",
+                "seen": false
+            },
+            {
+                "title": "C\u00f2n g\u00ec \u0111\u1eb9p h\u01a1n",
+                "link": "https://youtu.be/-nJ0WHEetsQ?si=LbJEzl0W8O5yDCQg",
+                "seen": false
+            },
+            {
+                "title": "Anh \u0111\u00e3 quen v\u1edbi c\u00f4 \u0111\u01a1n",
+                "link": "https://youtu.be/X7sSE3yCNLI?si=bGHQU7RfV2nHp0zb",
+                "seen": true
+            }
+        ]
+    }
+]
