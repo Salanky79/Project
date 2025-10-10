@@ -134,7 +134,6 @@ while running:
                 # Assign points to closet clsuters
                 for p in points:
                     distances_to_clusters = []
-
                     for c in clusters:
                         dis = get_distance(p, c)
                         distances_to_clusters.append(dis)
