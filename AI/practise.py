@@ -1,48 +1,42 @@
-import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 from sklearn import linear_model
+import matplotlib.animation as animation
 
-# Dữ liệu gốc
-df = pd.read_csv("Final_data.csv")
 
-# Biến số
-A = df[['Age', 'Weight (kg)', 'Height (m)', 'Max_BPM',
-        'Avg_BPM', 'Session_Duration (hours)']]
+def cost(x):
+    m = A.shape[0]
+    return 0.5/m * np.linalg.norm(A.dot(x) - b, 2)**2
 
-# Biến phân loại
-workout_dummies = pd.get_dummies(df['Workout_Type'])  # one-hot encoding
-A = pd.concat([A, workout_dummies], axis=1)
 
-b = df[['Calories_Burned']]
+def grad(x):
+    m = A.shape[0]
+    return 1/m * A.T.dot(A.dot(x)-b)
 
-# Hồi quy tuyến tính nhiều biến
+
+def gradient_descent(x_init, learning_rate, iteration):
+    x_list = [x_init]
+
+    for i in range(iteration):
+        x_new = x_list[-1] - learning_rate*grad(x_list[-1])
+        if np.linalg.norm(grad(x_new)) / len(x_new) < 0.0001:  # when to stop GD
+            break
+        x_list.append(x_new)
+
+    return x_list
+
+
+# Data
+A = np.array([[2, 9, 7, 9, 11, 16, 25, 23, 22, 29, 29, 35, 37, 40, 46]]).T
+b = np.array([[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]]).T
+
+plt.plot(A, b, 'ro')
+
 lr = linear_model.LinearRegression()
+x0_gd = np.linspace(1, 46, 100).reshape(-1, 1)
 lr.fit(A, b)
+y0_gd = lr.predict(x0_gd)
+plt.plot(x0_gd, y0_gd)
 
-# Dữ liệu mới cần dự đoán
-x_test = pd.DataFrame({
-    'Age': [25, 30, 28, 35],
-    'Weight (kg)': [70, 80, 65, 75],
-    'Height (m)': [1.75, 1.8, 1.7, 1.78],
-    'Max_BPM': [180, 175, 190, 170],
-    'Avg_BPM': [120, 130, 125, 110],
-    'Session_Duration (hours)': [1, 1.5, 0.75, 2],
-    'Workout_Type': ['Strength', 'HIIT', 'Cardio', 'Yoga']
-})
 
-# One-hot encoding dữ liệu mới
-x_test_dummies = pd.get_dummies(x_test['Workout_Type'])
-for col in workout_dummies.columns:
-    if col not in x_test_dummies:
-        x_test_dummies[col] = 0
-
-x_test_encoded = pd.concat([x_test.drop('Workout_Type', axis=1),
-                            x_test_dummies[workout_dummies.columns]], axis=1)
-
-# Dự đoán
-y_pred = lr.predict(x_test_encoded).flatten()  # flatten để thành mảng 1D
-
-# Nối dữ liệu đầu vào với kết quả dự đoán
-result = x_test.copy()
-result['Predicted_Calories_Burned'] = y_pred
-
-print(result)
+plt.show()
